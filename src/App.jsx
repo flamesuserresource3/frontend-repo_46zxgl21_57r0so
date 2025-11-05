@@ -1,28 +1,45 @@
-import { useState } from 'react'
+import React from 'react';
+import Navbar from './components/Navbar';
+import CollectionsGallery from './components/CollectionsGallery';
+import CustomizationConfigurator from './components/CustomizationConfigurator';
+import AboutAndContact from './components/AboutAndContact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-white text-zinc-900" id="home">
+      <Navbar />
 
-export default App
+      <section className="relative">
+        <div className="max-w-6xl mx-auto px-4 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">Mirrors made for your space</h1>
+              <p className="mt-4 text-gray-700 text-lg">From minimal frameless to statement metal frames—custom sizes, 3‑way lights, defoggers and Bluetooth clock options. Build yours and get an instant estimate.</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href="#customize" className="inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 text-sm font-medium hover:bg-zinc-800">Customize & Price</a>
+                <a href="#collections" className="inline-flex items-center justify-center rounded-md border border-gray-300 px-5 py-3 text-sm font-medium hover:bg-zinc-50">View Collections</a>
+              </div>
+              <div className="mt-6 text-xs text-gray-500">Basic • Premium • Luxury packages available</div>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1600&auto=format&fit=crop" alt="Hero Mirror" className="w-full h-full object-cover"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CollectionsGallery />
+      <CustomizationConfigurator />
+      <AboutAndContact />
+
+      <footer className="border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 py-8 text-sm text-gray-600 flex flex-col sm:flex-row gap-2 items-center justify-between">
+          <p>© {new Date().getFullYear()} MirrorCraft — All rights reserved.</p>
+          <p>
+            <a href="#home" className="hover:text-black">Back to top</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
